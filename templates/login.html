@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block title%} connexion {% endblock %}
+
+{% block bodyId %}loginPage{% endblock %}
+
+{% block content %}
+
+<form action="{% url 'login'%}" method="post">
+    {% csrf_token %}
+    {% if error %}
+    <p class="error">{{ error }} </p>
+    {% endif %}
+    <div class="inputGroup">
+    <ul class="errorlist">
+        <li> Enter a valid email adress.</li>
+    </ul>
+
+        <p>
+            <label for="email"> Courriel : </label>
+            {{ form.email }}
+            <!--input name="email" id="email" type="email" required-->    
+        </p>
+        
+        <ul class="errorlist">
+            <li> Enter a valid email adress.</li>
+        </ul>
+
+        <p>
+            <label for="password"> Mot de passe : </label>
+            {{form.password}}
+            <!--<input name="password" id="password" size="30" type="password" autocomplete="off" -->
+           
+        </p>
+    </div>
+
+    <p>
+        <button type="submit" class= "btn" >se connecter</button>
+       
+<button class="btn">créer un compte</button>
+    </p>
+</form>
+{% endblock %}

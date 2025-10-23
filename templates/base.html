@@ -1,0 +1,16 @@
+{%  load static %}
+<!DOCTYPE html>
+<html>
+    <head> 
+        <title> Hfinder -  {% block title %}Bienvenue{% endblock  %}</title>
+        <link rel="stylesheet" type="text/css" href="{% static '/css/style.css' %}" >
+    </head>
+    <body id="{% block bodyId %}Generic Page{% endblock %}">
+        <header>
+            {% block headerContent %}{% endblock %}
+        </header>
+        <section id="content">
+            {% block content %}{% endblock %}
+        </section>
+    </body>
+</html>
