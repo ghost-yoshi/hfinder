@@ -4,18 +4,38 @@ from django.shortcuts import render, redirect
 from datetime import datetime
 from Hfinder.forms import LoginForm, userProfileForm, Person
 
+def get_logged_user_from_request(request):
+    if 'logged_user_id' in request.session:
+        logged_user_id = request.session['logged_user_id']
+        if len(Person.objects.filter(id=logged_user_id)) ==1:
+            return Person.objects.get(id=logged_user_id)
+        else : 
+            return None
+        
+    else :
+        return None
+    
 def welcome(request):
-    return render(request,'welcome.html', {
-    'Nom':'YOSHi',
-    'Date': datetime.now,
-    'ville': 'Douala'
-    })
-
+    logged_user = get_logged_user_from_request(request)
+    if logged_user:
+        return render(request, 'welcome.html', 
+                      {'firstname': logged_user.first_name,
+                       'lastname': logged_user.last_name,
+                       'phone_number': logged_user.phone_number,
+                       'register_date': logged_user.register_date})
+    else:
+        print('non logged user detected:', logged_user)
+        return redirect('/login')
 def login(request):
 
     if len(request.POST) > 0:
+        print (request.session)
         form = LoginForm(request.POST)
         if form.is_valid():
+            user_mail = form.cleaned_data['email']
+            logged_user = Person.objects.get(email=user_mail)
+            request.session['logged_user_id'] = logged_user.id
+            print('utilisateur: ', logged_user.first_name, ' sauvegardé')
             return redirect('/welcome') 
         else:
             return render(request, 'login.html', {'form': form})

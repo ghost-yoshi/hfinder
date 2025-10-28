@@ -14,26 +14,26 @@
     <p class="error">{{ error }} </p>
     {% endif %}
     <div class="inputGroup">
-    <ul class="errorlist">
-        <li> Enter a valid email adress.</li>
-    </ul>
-
-        <p>
-            <label for="email"> Courriel : </label>
-            {{ form.email }}
-            <!--input name="email" id="email" type="email" required-->    
-        </p>
-        
         <ul class="errorlist">
             <li> Enter a valid email adress.</li>
         </ul>
 
-        <p>
-            <label for="password"> Mot de passe : </label>
-            {{form.password}}
-            <!--<input name="password" id="password" size="30" type="password" autocomplete="off" -->
-           
-        </p>
+            <p>
+                <label for="email"> Courriel : </label>
+                {{ form.email }}
+                <!--input name="email" id="email" type="email" required-->    
+            </p>
+            
+            <ul class="errorlist">
+                <li> Enter a valid email adress.</li>
+            </ul>
+
+            <p>
+                <label for="password"> Mot de passe : </label>
+                {{form.password}}
+                <!--<input name="password" id="password" size="30" type="password" autocomplete="off" -->
+            
+            </p>
     </div>
 
     <p>

@@ -34,6 +34,7 @@ body#loginPage section#content {
   pointer-events: none;
   transition: all 0.3s ease;
   color: rgb(100, 100, 100);
+  /*transform: translateY(-50%); */
 }
 
 .inputGroup :is(input:focus, input:valid)~label {
@@ -178,4 +179,55 @@ ul.errorlist {
   padding: 0;
   list-style-type: none;
   color: #d23d24;
+}
+
+/* welcome.html */
+
+body#welcomePage header{
+  background: #3b5998 ;
+  color: #FFFFFF
+}
+
+body#welcomePage header p#name {
+  font-size: 22px;
+  margin: 20px 0 0 70px;
+}
+
+body#welcomePage header p#function {
+  margin: 0 0 0 70px;
+}
+
+body#welcomePage header p#profileLinks {
+  position: absolute;
+  right: 40px;
+  top: 25px;
+}
+
+a.buttonLink {
+  border-style: solid;
+  border-width: 1px;
+  border-color: #d9dfea  #0e1f5b #0e1f5b #d9dfea;
+  background-color: #3b5998;
+  color: #FFFFFF;
+  padding: 2px 15px 3px 15px;
+  text-align: center;
+  text-decoration: none;
+}
+
+body#welcomePage  section#content {
+  width: 800px;
+  margin: 0 0 0 0px;
+}
+
+body#welcomePage section#messageList {
+  position: absolute;
+  width: 600px;
+  background-color: red;
+}
+
+body#welcomePage section#friendList {
+  position: absolute;
+  width: 200px;
+  right: 0;
+  background-color: yellow;
 }

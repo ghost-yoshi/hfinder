@@ -2,7 +2,12 @@ from django import forms
 from Hfinder.models import Person
 
 class LoginForm(forms.Form):
-    email = forms.EmailField(label='Courriel', required=True)
+    email = forms.EmailField(label='Courriel', 
+                             required=True,
+                             widget=forms.EmailInput(attrs={
+                                 'placeholder':'',
+                             }) 
+                            )
     password = forms.CharField(label='Mot de Passe', widget=forms.PasswordInput, required=True)
 
     

@@ -1,0 +1,15 @@
+{% extends "base.html"%}
+{% block title%} Accueil {% endblock %}
+{%block bodyId%} welcomePage{%endblock%}
+
+{% block headerContent %}
+<p id="name">{{logged_user.first_name}} {{logged_user.last_name}} </p>
+<p id="function">
+    Numéro de téléphone: {{logged_user.phone_number}}
+    membre depuis: {{logged_user.register_date}}
+</p>
+<p id="profileLiks">
+    <a href="???" class="buttonLink"> Voir le profil </a>
+    <a href="???" class="buttonLink"> Modifier le profil </a>
+</p>
+{% endblock %}
