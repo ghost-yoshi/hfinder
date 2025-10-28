@@ -1,8 +1,9 @@
 # -*- coding: utf-8 -*-
 
 from django.shortcuts import render, redirect
-from datetime import datetime
+from datetime import datetime, date
 from Hfinder.forms import LoginForm, userProfileForm, Person
+from Hfinder.models import Message
 
 def get_logged_user_from_request(request):
     if 'logged_user_id' in request.session:
@@ -18,11 +19,20 @@ def get_logged_user_from_request(request):
 def welcome(request):
     logged_user = get_logged_user_from_request(request)
     if logged_user:
+        if 'newMessage' in request.GET and request.GET['newMessage'] != '':
+            newMessage = Message(author=logged_user,
+                                 content = request.GET['newMessage'],
+                                 publication_date = date.today())
+            newMessage.save()
+            
+        friendMessages = Message.objects.filter(author__friends=logged_user).order_by('-publication_date')
         return render(request, 'welcome.html', 
                       {'firstname': logged_user.first_name,
                        'lastname': logged_user.last_name,
                        'phone_number': logged_user.phone_number,
-                       'register_date': logged_user.register_date})
+                       'register_date': logged_user.register_date,
+                       'friendMessages': friendMessages,
+                       'logged_user': logged_user})
     else:
         print('non logged user detected:', logged_user)
         return redirect('/login')

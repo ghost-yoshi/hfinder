@@ -222,7 +222,7 @@ body#welcomePage  section#content {
 body#welcomePage section#messageList {
   position: absolute;
   width: 600px;
-  background-color: red;
+  /*background-color: red;*/
 }
 
 body#welcomePage section#friendList {
@@ -230,4 +230,59 @@ body#welcomePage section#friendList {
   width: 200px;
   right: 0;
   background-color: yellow;
+}
+
+form.inlineForm label {
+  display: inline;
+  float: none;
+  padding: 0;
+}
+
+form.inlineForm input[type="text"] {
+  display: inline-block;
+  width: 150px;
+}
+
+form.inlineForm input[type="submit"] {
+  margin: 0;
+}
+
+section#messageList ul {
+  margin: 20px 0 0 0;
+  list-style: none;
+  padding: 0
+}
+
+section#messageList ul li {
+  margin-bottom: 10px;
+}
+
+section#messageList ul li p {
+  margin: 8px 0 0 0;
+
+}
+
+body#welcomePage section#friendList {
+  position: absolute;
+  width: 180px;
+  right: 0;
+  padding: 10px;
+  background-color: #DCE0ED;
+}
+
+section#friendList p.title {
+  font-size: 22px;
+  color: #3b5998;
+  border-bottom: 1px solid #3b5998;
+  margin: 0 0 20px 0;
+}
+
+section#friendList ul {
+  margin: 20px 0 0 0;
+  list-style: none;
+  padding: 0;
+}
+
+section#friendList ul li {
+  margin: 0 0 5px 0;
 }

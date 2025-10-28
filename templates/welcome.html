@@ -16,10 +16,34 @@
 
 {% block content %}
     <section id="messageList">
-        test 
+        <form action='{% url 'welcome' %}' method="get" class="inlineForm">
+            <label for="newMessageInput">Publier un message </label>
+            <input type="text" name="newMessage" id="newMessageInput" />
+            <input type="submit" value="Publier" />
+        </form>
+        <ul>
+            {% for message in friendMessages %}
+            <li>
+                <p>
+                    <a href=???>{{ message.author.first_name }}
+                        {{ message.author.last_name }} 
+                    </a> dit: 
+                </p>
+                <p> {{ message.content }} </p>
+            </li>
+            {% endfor %}
+        </ul>
+
+
     </section>
 
     <section id="friendList">
-        test 
+        <p class="title"> mes amis </p>
+        <ul>
+            {% for friend in logged_user.friends.all %}
+            <li> <a href="???"> {{friend.first_name}} {{friend.last_name}} </a> </li>
+            {% endfor %}
+        </ul>
     </section>
 {% endblock %}
+
