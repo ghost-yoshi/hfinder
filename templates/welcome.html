@@ -39,7 +39,7 @@
 
     <section id="friendList">
         <p class="title"> mes amis </p>
-        <ul>
+        <p><a href="{% url 'addfriend' %}" class="buttonLink">Ajouter</a></p>        <ul>
             {% for friend in logged_user.friends.all %}
             <li> <a href="???"> {{friend.first_name}} {{friend.last_name}} </a> </li>
             {% endfor %}

@@ -8,10 +8,10 @@
 
 {% block content %}
 
-<form action="{% url 'login'%}" method="post">
+<form action="{% url 'login' %}" method="post">
     {% csrf_token %}
     {% if error %}
-    <p class="error">{{ error }} </p>
+        <p class="error">{{ error }} </p>
     {% endif %}
     <div class="inputGroup">
         <ul class="errorlist">
@@ -38,8 +38,10 @@
 
     <p>
         <button type="submit" class= "btn" >se connecter</button>
-       
-<button class="btn">créer un compte</button>
     </p>
 </form>
+    
+<a href='{% url 'register'%}'><button class="btn">créer un compte</button> </a>
+    </p>
+
 {% endblock %}

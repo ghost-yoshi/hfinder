@@ -6,8 +6,8 @@
 
 {% block content %}
     <h1> Création d'un compte </h1>
-    <form action="register" method="get">
-        {{form.as_p}}
+    <form action="{% url 'register'%}" method="get">
+        {{ form.as_p }}
         <p>
             <button type="submit" class='btn' > créer un compte </button>
         </p>
